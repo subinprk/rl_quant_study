@@ -42,6 +42,9 @@ for i in range(len(df)):
 final_equity = equity_curve[-1]
 print(f"Final equity: {final_equity:.2f} USDT")
 print(f"Return: {(final_equity/ INITIAL_CASH - 1) * 100:.2f}%")
+pd.DataFrame({"equity": equity_curve}).to_csv(
+    "logs/random_equity.csv", index=False
+)
 
 #-------------plot-----------------
 os.makedirs("plots", exist_ok=True)
